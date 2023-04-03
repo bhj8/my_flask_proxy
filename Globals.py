@@ -17,3 +17,4 @@ def get_env_variable(var_name):
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 MY_PROXY_AES_KEY = os.getenv("MY_PROXY_AES_KEY")
 url = os.getenv("url")
+m_url= os.getenv("m_url")

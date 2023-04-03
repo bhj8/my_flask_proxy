@@ -7,11 +7,14 @@ import Globals
 
 openai.api_key = Globals.OPENAI_API_KEY
 
-async def get_moderation(imessage: str):#True 有不当内容
+moderation_params = {"input":"需要被审核的内容"}
+async def get_moderation(moderation_params):
   moderation = await openai.Moderation.acreate(
-  input=imessage,
+  **moderation_params
   )
-  return moderation.results[0].flagged
+  return moderation
+
+
 
 
 async def get_response(dic:dict):
@@ -49,6 +52,7 @@ if __name__ == "__main__":
 }
   # print(asyncio.run(get_translation(["一个美少女,jk,金色头发,带着眼镜"])))
   print(asyncio.run(get_response(params)))
+  print(asyncio.run(get_moderation(moderation_params)))
   # print(asyncio.run(get_moderation(["审核能力测试"])))
 # 处理生成的文本输出
 #print(message)
