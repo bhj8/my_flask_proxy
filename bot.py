@@ -43,7 +43,7 @@ app = Flask(__name__)
 
 #正常请求，用于聊天
 @app.route('/YXnkJqAD14DPG4', methods=['POST'])
-def getpay():
+def on_chat():
     encrypted_message = request.form.get('message')
     if encrypted_message:
         decrypted_message = decrypt_message(encrypted_message, MY_PROXY_AES_KEY)
@@ -60,7 +60,7 @@ def getpay():
 
 #审核接口，发过来字符串，一个字典，包含是否违反政策。免费使用的。建议和聊天一起发过来。
 @app.route('/k9knfDzNbmWC6BOE', methods=['POST'])
-def getpay():
+def on_m():
     encrypted_message = request.form.get('message')
     if encrypted_message:
         decrypted_message = decrypt_message(encrypted_message, MY_PROXY_AES_KEY)
