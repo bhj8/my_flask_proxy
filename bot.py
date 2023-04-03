@@ -22,8 +22,9 @@ async def getpay():
         if decrypted_message:
             dic = json.loads(decrypted_message)
             result =  await get_response(dic)
-            
-            return make_response("", 200)
+            message = json.dumps(result)
+            encrypted_message = encrypt_message(message,MY_PROXY_AES_KEY)            
+            return jsonify({'code': 200, 'message': encrypted_message})
 
     print(f"bad pay info")
     return make_response("", 400)

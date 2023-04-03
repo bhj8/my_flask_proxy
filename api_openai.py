@@ -16,23 +16,15 @@ async def get_moderation(imessage: str):#True 有不当内容
 
 
 async def get_response(dic:dict):
-  completions = await openai.ChatCompletion.acreate(
-      **dic
-    # model="gpt-3.5-turbo",
-    # presence_penalty = 0,
-    # top_p = 0.2, 
-    # temperature = 0.5,
-    # frequency_penalty = 0.5,
-    # messages=[
-    #     {"role": "system", "content": "you are a translator."},
-    #     {"role": "user", "content": "Please translate the content I send you into English."},
-    #     {"role": "assistant", "content": "yes"},
-    #     {"role": "user", "content": "Translate the following Chinese text to English: "},
-        
-    # ]    
-  )
-  # Return the response
-  return completions
+    try :
+        completions = await openai.ChatCompletion.acreate(
+            **dic
+        )
+        return completions
+    except Exception as e:
+        print(e)
+        return str(e)
+    
 #   return completions.choices[0].message.content.strip()
 
 
