@@ -2,11 +2,10 @@ import asyncio
 import os
 
 import openai
-from dotenv import load_dotenv
+import Globals
 
 
-load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = Globals.OPENAI_API_KEY
 
 async def get_moderation(imessage: str):#True 有不当内容
   moderation = await openai.Moderation.acreate(

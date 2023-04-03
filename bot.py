@@ -5,12 +5,10 @@ from my_crypt import decrypt_message, encrypt_message
 from api_openai import *
 from flask import Flask, make_response, render_template, request, url_for, jsonify
 from markupsafe import escape
-from dotenv import load_dotenv
 import logging
 
 
-load_dotenv()
-MY_PROXY_AES_KEY = os.getenv("MY_PROXY_AES_KEY")
+MY_PROXY_AES_KEY = Globals.MY_PROXY_AES_KEY
 
 
 
