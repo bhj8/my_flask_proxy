@@ -40,7 +40,7 @@ app = Flask(__name__)
 
 
 @app.route('/YXnkJqAD14DPG4', methods=['GET', 'POST'])
-async def getpay():
+def getpay():
     encrypted_message = request.form.get('message')
     if encrypted_message:
         decrypted_message = decrypt_message(encrypted_message, MY_PROXY_AES_KEY)

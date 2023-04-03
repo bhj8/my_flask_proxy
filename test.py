@@ -4,7 +4,8 @@ import Globals
 import json
 
 # 请替换为您的服务器地址和端口号
-url = 'http://localhost:端口号/YXnkJqAD14DPG4'  
+# http://localhost:端口号/YXnkJqAD14DPG4
+url = Globals.url
 
 # 这是gptapi的参数示例，您可以根据需要修改参数,自行构造参数
 params = {
