@@ -37,8 +37,7 @@ response = requests.post(url, data=data, headers=headers)
 if response.status_code == 200:
     json_response = json.loads(response.text)
     encrypted_message = json_response['message']
-    reslut = decrypt_message(encrypted_message, Globals.MY_PROXY_AES_KEY)#
-    reslut =json.loads(reslut)#一个字典
+    reslut = decrypt_message(encrypted_message, Globals.MY_PROXY_AES_KEY)#解密后已经是一个字典了
     #我会把调取openai的结果，原样返回给你。你需要自行从包中提取自己需要的东西（触发异常时，则是意外信息）
     print("解密后的消息：", reslut)
 else:
