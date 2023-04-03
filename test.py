@@ -39,6 +39,10 @@ if response.status_code == 200:
     encrypted_message = json_response['message']
     reslut = decrypt_message(encrypted_message, Globals.MY_PROXY_AES_KEY)#解密后已经是一个字典了
     #我会把调取openai的结果，原样返回给你。你需要自行从包中提取自己需要的东西（触发异常时，则是意外信息）
+    
+    #假如你只要返回的聊天文本
+    #reslut = reslut.choices[0].message.content.strip()
     print("解密后的消息：", reslut)
 else:
     print(f"请求失败，状态码：{response.status_code}")
+
