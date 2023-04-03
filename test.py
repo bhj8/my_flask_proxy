@@ -37,7 +37,7 @@ data_m = {"message":message_data_m}
 
 
 headers = {
-    'Content-Type': 'application/x-www-form-urlencoded'
+    # 'Content-Type': 'application/x-www-form-urlencoded'
 }
 
 def get_response_chat():
