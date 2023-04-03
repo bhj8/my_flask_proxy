@@ -48,8 +48,7 @@ def getpay():
     if encrypted_message:
         decrypted_message = decrypt_message(encrypted_message, MY_PROXY_AES_KEY)
         if decrypted_message:
-            dic = json.loads(decrypted_message)
-            result =  asyncio.run(get_response(dic))
+            result =  asyncio.run(get_response(decrypted_message))
             message = json.dumps(result)
             encrypted_message = encrypt_message(message,MY_PROXY_AES_KEY)    
             logger.debug(f"encrypted_message: {encrypted_message}")        
