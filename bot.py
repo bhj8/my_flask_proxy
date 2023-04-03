@@ -6,9 +6,12 @@ from api_openai import *
 from flask import Flask, make_response, render_template, request, url_for, jsonify
 from markupsafe import escape
 import logging
-
+import asyncio
 
 MY_PROXY_AES_KEY = Globals.MY_PROXY_AES_KEY
+loop = asyncio.get_event_loop()
+asyncio.set_event_loop(loop)
+
 
 
 
@@ -46,7 +49,7 @@ def getpay():
         decrypted_message = decrypt_message(encrypted_message, MY_PROXY_AES_KEY)
         if decrypted_message:
             dic = json.loads(decrypted_message)
-            result =  await get_response(dic)
+            result =  asyncio.run(get_response(dic))
             message = json.dumps(result)
             encrypted_message = encrypt_message(message,MY_PROXY_AES_KEY)    
             logger.debug(f"encrypted_message: {encrypted_message}")        
